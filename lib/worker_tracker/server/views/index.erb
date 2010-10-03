@@ -1,1 +1,13 @@
-index.erb
+<h1>Workers</h1>
+<table>
+  <tr>
+    <th>host</th>
+    <th>status</th>
+  </tr>
+  <% @workers.each do | worker | %>
+  <tr>
+    <td> <%= worker[:host] %></td>
+    <td> <%= worker[:status] %></td>
+  </tr>
+  <% end  %>
+</table>

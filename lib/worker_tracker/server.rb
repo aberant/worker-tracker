@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'erb'
+require 'worker_tracker'
 
 module WorkerTracker
   class Server < Sinatra::Base
@@ -28,6 +29,7 @@ module WorkerTracker
     end
 
     get "/" do
+      @workers = WorkerList.find
       show :index
     end
   end
