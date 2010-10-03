@@ -32,5 +32,13 @@ module WorkerTracker
       @workers = WorkerList.find
       show :index
     end
+
+    post "/register_worker" do
+      worker_data = JSON.parse(params[:worker_data])
+      worker_hash = {:host => worker_data["host"], :status => worker_data["status"]}
+      WorkerList.add_worker( worker_hash ).inspect
+
+      redirect "/"
+    end
   end
 end

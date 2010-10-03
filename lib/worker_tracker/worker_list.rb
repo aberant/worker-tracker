@@ -1,9 +1,17 @@
 class WorkerList
+  def self.clear_workers
+    @workers = []
+  end
+
+  clear_workers
+
   def self.find
-    [
-      {:host => "127.0.0.1", :status => "available"},
-      {:host => "1.1.1.1", :status => "available"},
-      {:host => "2.2.2.2", :status => "available"}
-    ]
+    @workers
+  end
+
+  def self.add_worker( worker_hash )
+    unless @workers.include?( worker_hash )
+      @workers << worker_hash
+    end
   end
 end

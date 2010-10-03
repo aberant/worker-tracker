@@ -1,3 +1,6 @@
+require "bundler/setup"
+Bundler.require(:default)
+
 require 'worker_tracker/worker_list'
 
 module WorkerTracker
