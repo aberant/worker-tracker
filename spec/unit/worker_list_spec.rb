@@ -17,4 +17,9 @@ describe WorkerList do
       WorkerList.add_worker(:host => "127.0.0.1", :status => "available")
     }.should change(WorkerList.find, :size).by(1)
   end
+
+  it "marks a worker as busy" do
+    WorkerList.add_worker(:host => "127.0.0.1", :status => "available")
+    WorkerList.mark_worker_as_busy( "127.0.0.1")[:status].should == "busy"
+  end
 end

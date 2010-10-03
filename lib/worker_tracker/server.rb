@@ -36,7 +36,17 @@ module WorkerTracker
     post "/register_worker" do
       worker_data = JSON.parse(params[:worker_data])
       worker_hash = {:host => worker_data["host"], :status => worker_data["status"]}
-      WorkerList.add_worker( worker_hash ).inspect
+
+      WorkerList.add_worker( worker_hash )
+
+      redirect "/"
+    end
+
+    post "/mark_as_busy" do
+      worker_data = JSON.parse(params[:worker_data])
+      host_ip = worker_data["host"]
+
+      WorkerList.mark_worker_as_busy( host_ip )
 
       redirect "/"
     end
