@@ -4,7 +4,7 @@ a generic platform for worker monitoring and management.
 
 == Description
 
-worker_tracker provides three functions
+worker_tracker provides these functions
 * list available workers
 * add available workers
 * mark workers as busy
