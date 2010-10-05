@@ -20,4 +20,11 @@ class WorkerList
     worker[:status] = "busy" # unless worker.empty?
     worker.to_json
   end
+
+
+  def self.mark_worker_as_available( worker_ip )
+    worker = @workers.detect{|w| w[:host] == worker_ip }
+    worker[:status] = "available" # unless worker.empty?
+    worker.to_json
+  end
 end

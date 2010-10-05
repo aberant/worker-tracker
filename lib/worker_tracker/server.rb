@@ -50,5 +50,14 @@ module WorkerTracker
 
       redirect "/"
     end
+
+    post "/mark_as_available" do
+      worker_data = JSON.parse(params[:worker_data])
+      host_ip = worker_data["host"]
+
+      WorkerList.mark_worker_as_available( host_ip )
+
+      redirect "/"
+    end
   end
 end
